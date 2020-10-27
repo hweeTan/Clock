@@ -14,11 +14,7 @@
             s = checkTime(s);
             h = checkTime(h);
 
-            document.all["clock3"].innerHTML = h + ':' + m + ':' + s + ' ';
-            document.all["clock1"].innerHTML = h + ':' + m + ':' +  s + ' ';
-            document.all["clock2"].innerHTML = h + ':' + m + ':' +  s + ' ';
-            document.all["clock4"].innerHTML = h + ':' + m + ':' +  s + ' ';
-            document.all["clock5"].innerHTML = h + ':' + m + ':' +  s + ' ';
+            document.body.querySelectorAll('[data-plugin-clock]').forEach(element => element.innerHTML = h + ':' + m + ':' + s + ' ')
             setTimeout(function() {
                 timeClock(timeZoneOffset)
             }, 500);
@@ -36,13 +32,13 @@
         }
     </script>
 
-    <boydy>
-        <p><h1><div id="clock1"></div></h1></p>
-        <p><h1><div id="clock2"></div></h1></p>
-        <p><h1><div id="clock3"></div></h1></p>
-        <p><h1><div id="clock4"></div></h1></p>
-        <p><h1><div id="clock5"></div></h1></p>
-    </boydy>
+    <body>
+        <h1 data-plugin-clock></h1>
+        <h1 data-plugin-clock></h1>
+        <h1 data-plugin-clock></h1>
+        <h1 data-plugin-clock></h1>
+        <h1 data-plugin-clock></h1>
+    </body>
 
     <style>
         body {
@@ -52,7 +48,7 @@
             color: black;
             text-align: center;
         }
-     
+
         p {
             font-family: verdana;
             font-size: 20px;
